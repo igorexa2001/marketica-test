@@ -9,11 +9,15 @@ class Book extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+    ];
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function authors()
     {
-        return $this->belongsToMany(Book::class, 'authors_books', 'book_id', 'author_id');
+        return $this->belongsToMany(Author::class, 'authors_books', 'book_id', 'author_id');
     }
 }
