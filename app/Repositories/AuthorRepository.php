@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Author;
+use App\Models\Book;
 use Illuminate\Database\Eloquent\Collection;
 
 class AuthorRepository
@@ -15,6 +16,17 @@ class AuthorRepository
     public function getAll()
     {
         return Author::all();
+    }
+
+    /**
+     * Get authors that doesn't attached to book
+     *
+     * @param Book $book
+     * @return mixed
+     */
+    public function getOthers(Book $book)
+    {
+        return Author::whereNotIn('id', $book->authors->pluck('id'))->get();
     }
 
     /**
@@ -33,12 +45,12 @@ class AuthorRepository
     /**
      * Get author by id
      *
-     * @param $request
+     * @param $id
      * @return mixed
      */
-    public function getById($request)
+    public function getById($id)
     {
-        return Author::where('id', $request['id'])->first();
+        return Author::where('id', $id)->first();
     }
 
     /**
@@ -59,11 +71,12 @@ class AuthorRepository
     /**
      * Delete author
      *
-     * @param $request
+     * @param Author $author
      * @return bool
+     * @throws \Exception
      */
-    public function delete($request)
+    public function delete(Author $author)
     {
-        return Author::where('id', $request['id'])->delete();
+        return $author->delete();
     }
 }

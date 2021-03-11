@@ -3,5 +3,3 @@
         <span class="text-muted">Власов Игорь</span>
     </div>
 </footer>
-
-{{--TODO fix: footer isn't sticky--}}
