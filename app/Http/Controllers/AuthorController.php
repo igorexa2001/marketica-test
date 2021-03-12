@@ -90,7 +90,7 @@ class AuthorController extends Controller
     public function update(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'author_id' => 'required|exists:authors',
+            'author_id' => 'required|exists:authors,id',
             'author_name' => 'required',
         ]);
 
@@ -250,7 +250,7 @@ class AuthorController extends Controller
     public function delete(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'author_id' => 'required|exists:authors',
+            'author_id' => 'required|exists:authors,id',
         ]);
 
         if ($validator->fails()) {

@@ -30,7 +30,8 @@
                 </ol>
             </li>
             <li>Реализовать <a href="{{route('authors_index')}}">публичную часть</a> сайта с отображение авторов и их книг (простой вывод списка на странице)</li>
-            <li>Реализовать выдачу данных в формате json по RESTful протоколу отдельным контроллером
+            <li>Реализовать выдачу данных в формате json по RESTful протоколу отдельным контроллером <br>
+                <a href="https://www.getpostman.com/collections/77937ce53c6e9123c24d" target="_blank">(Postman коллекция)</a>
                 <ol type="a">
                     <li>GET /api/v1/books/list получение списка книг с именем автора</li>
                     <li>GET /api/v1/books/by-id получение данных книги по id</li>
@@ -42,6 +43,6 @@
 
         <p>Результат представить ссылкой на репозиторий.<br>
         Желательно, в репозиторий залить пустой каркас приложения, а затем с внесёнными изменениями, чтобы можно было проследить diff.<br>
-        <a href="https://github.com/igorexa2001/marketica-test/commits/develop">Смотреть тут</a></p>
+        <a href="https://github.com/igorexa2001/marketica-test/commits/develop" target="_blank">(Смотреть тут)</a></p>
     </div>
 @endsection

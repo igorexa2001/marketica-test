@@ -38,7 +38,7 @@ class BookRepository
     public function create($request)
     {
         return Book::create([
-            'name' => $request['name'],
+            'name' => $request['book_name'],
         ]);
     }
 
@@ -62,7 +62,7 @@ class BookRepository
      */
     public function update(Book $book, $request)
     {
-        $book->fill($request);
+        $book->name = $request['book_name'];
         $book->save();
 
         return $book;

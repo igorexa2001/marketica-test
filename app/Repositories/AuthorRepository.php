@@ -38,7 +38,7 @@ class AuthorRepository
     public function create($request)
     {
         return Author::create([
-            'name' => $request['name'],
+            'name' => $request['author_name'],
         ]);
     }
 
@@ -62,7 +62,7 @@ class AuthorRepository
      */
     public function update(Author $author, $request)
     {
-        $author->fill($request);
+        $author->name = $request['author_name'];
         $author->save();
 
         return $author;

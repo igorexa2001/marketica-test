@@ -71,7 +71,7 @@ class BookController extends Controller
     public function update(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'book_id' => 'required|exists:books',
+            'book_id' => 'required|exists:books,id',
             'book_name' => 'required',
         ]);
 
@@ -234,7 +234,7 @@ class BookController extends Controller
     public function delete(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'book_id' => 'required|exists:authors,id',
+            'book_id' => 'required|exists:books,id',
         ]);
 
         if ($validator->fails()) {

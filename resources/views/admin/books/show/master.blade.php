@@ -11,7 +11,7 @@
 @section('admin-content')
     <form class="container" action="{{route('admin_books_update')}}" method="post">
         @csrf
-        <input type="hidden" name="id" value="{{$book->id}}">
+        <input type="hidden" name="book_id" value="{{$book->id}}">
         <div class="mb-3">
             <label for="book_name" class="form-label">Название книги</label>
             <input type="text" class="form-control" id="book_name" name="book_name" placeholder="Название книги..." value="{{$book->name}}" required>

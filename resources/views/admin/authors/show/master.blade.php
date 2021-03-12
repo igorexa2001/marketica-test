@@ -11,7 +11,7 @@
 @section('admin-content')
     <form class="container" action="{{route('admin_authors_update')}}" method="post">
         @csrf
-        <input type="hidden" name="id" value="{{$author->id}}">
+        <input type="hidden" name="author_id" value="{{$author->id}}">
         <div class="mb-3">
             <label for="author_name" class="form-label">Имя автора</label>
             <input type="text" class="form-control" id="author_name" name="author_name" placeholder="Имя автора..." value="{{$author->name}}" required>
@@ -46,10 +46,13 @@
                         </ul>
                     </td>
                     <td class="text-right w-25">
-                        <div class="btn-group">
-                            <button class="btn btn-primary">Редактировать</button>
-                            <button class="btn btn-danger">Удалить</button>
-                        </div>
+                        <form class="btn-group" action="{{route('admin_authors_detach_book')}}" method="post">
+                            @csrf
+                            <input type="hidden" name="author_id" value="{{$author->id}}">
+                            <input type="hidden" name="book_id" value="{{$book->id}}">
+                            <a href="{{route('admin_books_show', ['book_id' => $book->id])}}" class="btn btn-primary">Редактировать</a>
+                            <button type="submit" class="btn btn-danger">Удалить</button>
+                        </form>
                     </td>
                 </tr>
             @endforeach
